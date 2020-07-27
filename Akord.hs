@@ -1,7 +1,7 @@
 module Akord where
 
 
-{- Akord je posloupnost tonu 1 - 12 (C, Cis, D, Dis, E, F, Fis, G, Gis, A, Ais, H), hlavni stupnice je 1-3-5-6-8-10-12.
+{- Akord je posloupnost tonu 1 - 12, zakladni stupnice je 1-3-5-6-8-10-12.
  -
  - Hlavni akordy:
  -   Tonika (T): 1-5-8
@@ -30,71 +30,71 @@ module Akord where
 type Akord = [Int]
 
 
-t :: Akord
+at :: Akord
 
-t = [1,5,8]
-
-
-ii :: Akord
-
-ii = [3, 6, 10]
+at = [1,5,8]
 
 
-iii :: Akord
+aii :: Akord
 
-iii = [5, 8, 12]
-
-
-s :: Akord
-
-s = [6, 10, 1]
+aii = [3, 6, 10]
 
 
-d :: Akord
+aiii :: Akord
 
-d = [8, 12, 3]
-
-
-vi :: Akord
-
-vi = [10, 1, 5]
+aiii = [5, 8, 12]
 
 
-vii :: Akord
+as :: Akord
 
-vii = [12, 3, 6]
-
-
-t7 :: Akord
-
-t7 = [1, 5, 8, 12]
+as = [6, 10, 1]
 
 
-ii7 :: Akord
+ad :: Akord
 
-ii7 = [3, 6, 10, 1]
-
-
-iii7 :: Akord
-
-iii7 = [5, 8, 12, 3]
+ad = [8, 12, 3]
 
 
-s7 :: Akord
+avi :: Akord
 
-s7 = [6, 10, 1, 5]
-
-
-d7 :: Akord
-
-d7 = [8, 12, 3, 6]
+avi = [10, 1, 5]
 
 
-vi7 :: Akord
+avii :: Akord
 
-vi7 = [10, 1, 5, 8]
+avii = [12, 3, 6]
 
 
-vii7 :: Akord
+at7 :: Akord
 
-vii7 = [12, 3, 6, 10]
+at7 = [1, 5, 8, 12]
+
+
+aii7 :: Akord
+
+aii7 = [3, 6, 10, 1]
+
+
+aiii7 :: Akord
+
+aiii7 = [5, 8, 12, 3]
+
+
+as7 :: Akord
+
+as7 = [6, 10, 1, 5]
+
+
+ad7 :: Akord
+
+ad7 = [8, 12, 3, 6]
+
+
+avi7 :: Akord
+
+avi7 = [10, 1, 5, 8]
+
+
+avii7 :: Akord
+
+avii7 = [12, 3, 6, 10]
