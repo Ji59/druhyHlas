@@ -1,5 +1,6 @@
 module Load where
 
+
 {-
  - Format vstupniho souboru:
  -   Predznamenani (Napr. C pro C dur, Es pro Es Dur, Gm pro G Mol ...)
@@ -27,6 +28,12 @@ module Load where
  -}
 
 
+loadText :: IO [String] -> String
+
+loadText = loadFile "ahoj"
+
+
+-- Fukce se pokusi precist soubor na vstupu a pote ho rozkouskuje na radky
 loadFile :: String -> IO [String]
 
 loadFile file = fmap lines (readFile file)
