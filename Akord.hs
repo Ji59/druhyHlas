@@ -8,7 +8,7 @@ module Akord where
  -   Subdominanta (S): 6-10-1
  -   Dominanta (D): 8-12-3
  -
- - Vsechny akordy:
+ - Vsechny durove akordy:
  -   T     1-5-8
  -   II    3-6-10
  -   III   5-8-12
@@ -16,6 +16,9 @@ module Akord where
  -   D     8-12-3
  -   VI    10-1-5
  -   VII   12-3-6
+ -
+ - Molove akordy maji snizenou tercii v tonice:
+ -   Tm    1-4-8
  -
  - Septakordy:
  -   T7    1-5-8-12
@@ -27,7 +30,28 @@ module Akord where
  -   VII7  12-3-6-10
  -}
 
+
+-- dejAkord t ... t index tonu, na vystupu akord obsahujici index tonu
+dejAkordy :: Int -> [Akord]
+
+dejAkordy t = dejAkordy' t 0
+
+
+dejAkordy' :: Int -> Int -> [Akord]
+
+dejAkordy' t i | i >= length akordy = []
+               | elem t a = a : z
+               | otherwise = z
+                 where a = akordy !! i
+                       z = dejAkordy' t (i + 1)
+
+
 type Akord = [Int]
+
+
+akordy :: [Akord]
+
+akordy = [at, aii, aiii, as, ad, avi, avii, atm, at7, aii7, aiii7, as7, ad7, avi7, avii7]
 
 
 at :: Akord
@@ -63,6 +87,13 @@ avi = [10, 1, 5]
 avii :: Akord
 
 avii = [12, 3, 6]
+
+
+
+atm :: Akord
+
+atm = [1, 4, 8]
+
 
 
 at7 :: Akord
