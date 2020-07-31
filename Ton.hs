@@ -44,6 +44,7 @@ dejTon t = case map toLower t of
              otherwise -> Nothing
 
 
+
 -- vraci index zadaneho tonu, indexovano od 1
 dejIndexTonu :: Ton -> Int
 
@@ -54,6 +55,25 @@ dejIndexTonu t = 1 + (maybe 0 id $ elemIndex t tony)
 dejTonIndexu :: Int -> Ton
 
 dejTonIndexu i = tony !! (i - 1)
+
+
+-- dejIndex sh t ... vrati index tonu t s ohledem na posunuti sh dane toninou
+dejIndexSh :: Int -> Ton -> Int
+
+dejIndexSh sh t = 1 + mod (-1 - sh + dejIndexTonu t) (length tony)
+
+
+-- dejTonSh sh t ... sh posun dle toniny, t index tonu, vraci ton na danem indexu s ohledem na posun
+dejTonSh :: Int -> Int -> Ton
+
+dejTonSh sh t = dejTonIndexu (1 + mod (-1 + sh + t) (length tony))
+
+
+-- dejTercii t .. t ton prvniho hlasu, vraci ton druheho hlasu o tercii nize
+dejTercii :: Ton -> Ton
+
+dejTercii t = dejTonIndexu $ 1 + mod (dejIndexTonu t - 4) (length tony)
+
 
 
 type Ton = String

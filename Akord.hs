@@ -1,6 +1,9 @@
 module Akord where
 
 
+import Ton
+
+
 {- Akord je posloupnost tonu 1 - 12, zakladni stupnice je 1-3-5-6-8-10-12.
  -
  - Hlavni akordy:
@@ -31,7 +34,33 @@ module Akord where
  -}
 
 
--- dejAkord t ... t index tonu, na vystupu akord obsahujici index tonu
+-- dejAkord sh a ... sh je posun dle toniny, a je text akordu, vraci prislusny akord zabaleny v Just, nebo Nothing, pokud zadny akord nesedi
+dejAkord :: Int -> String -> Maybe Akord
+
+dejAkord sh a | last a == '7' = let t = dejTon $ init a
+                                  in if t == Nothing then Nothing else case dejIndexSh sh $ maybe tc id t of 
+                                    1  -> Just at7
+                                    3  -> Just aii7
+                                    5  -> Just aiii7
+                                    6  -> Just as7
+                                    8  -> Just ad7
+                                    10 -> Just avi7
+                                    12 -> Just avii7
+                                    otherwise -> Nothing
+              | last a == 'm' = Just atm
+              | otherwise = let t = dejTon a
+                                  in if t == Nothing then Nothing else case dejIndexSh sh $ maybe tc id t of
+                                    1  -> Just at
+                                    3  -> Just aii
+                                    5  -> Just aiii
+                                    6  -> Just as
+                                    8  -> Just ad
+                                    10 -> Just avi
+                                    12 -> Just avii
+                                    otherwise -> Nothing
+
+
+-- dejAkordy t ... t index tonu, na vystupu akord obsahujici index tonu
 dejAkordy :: Int -> [Akord]
 
 dejAkordy t = dejAkordy' t 0
