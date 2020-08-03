@@ -1,4 +1,4 @@
-module Load where
+module LoadFile where
 
 
 {-
@@ -26,11 +26,6 @@ module Load where
  -     Am C,A A,E E,C
  -    ...
  -}
-
-
-loadText :: IO [String] -> String
-
-loadText = loadFile "ahoj"
 
 
 -- Fukce se pokusi precist soubor na vstupu a pote ho rozkouskuje na radky

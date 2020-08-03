@@ -13,7 +13,7 @@ vytvorAkord sh (Just d) a0 t a1 = dejTonSh sh $ vytvorTon (dejIndexSh sh d) a0 (
 vytvorAkord sh Nothing  a0 t a1 = dejTonSh sh $ vytvorTon (dejIndexSh sh $ dejTercii t) a0 (dejIndexSh sh t) a1 -- pokud neni znam predchozi ton, utvor tercii.
 
 
--- dejAkord sh t .. sh posud podle toniny, t aktualni ton, vraci jeden z pouzitelnych akordu
+-- dejAkord sh t .. sh posud podle toniny, t aktualni ton, vraci seznam pouzitelnych akordu
 dejAkordyTonu :: Int -> Ton -> [Akord]
 
 dejAkordyTonu sh t = dejAkordy $ dejIndexSh sh t

@@ -75,12 +75,22 @@ dejAkordy' t i | i >= length akordy = []
                        z = dejAkordy' t (i + 1)
 
 
+-- dejAkordStr sh a ... sh posun dle toniny, a akord, vraci text akordu daneho vstupem
+dejAkordStr :: Int -> Akord -> String
+
+dejAkordStr sh a | a == atm = (dejTonIndexu $ sh + 1) ++ "m"  -- molovy akord
+                 | length a == 4 = t ++ "7"                   -- jedna se o septakord
+                 | otherwise = t                              -- durovy akord
+                   where t = dejTonIndexu $ 1 + (mod (-1 + sh + head a) $ length tony)
+
+
+
 type Akord = [Int]
 
 
 akordy :: [Akord]
 
-akordy = [at, aii, aiii, as, ad, avi, avii, atm, at7, aii7, aiii7, as7, ad7, avi7, avii7]
+akordy = [at, as, ad, at7, as7, ad7, atm, aii, avi, aii7, avi7, aiii, avii, aiii7, avii7]
 
 
 at :: Akord
